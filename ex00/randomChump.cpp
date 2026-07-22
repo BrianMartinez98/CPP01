@@ -1,20 +1,20 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brimarti <brimarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/10 11:05:28 by brimarti          #+#    #+#             */
-/*   Updated: 2026/07/10 11:05:29 by brimarti         ###   ########.fr       */
+/*   Created: 2026/06/07 00:56:50 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 11:30:23 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "Zombie.hpp"
-#include <iostream>
 
-void 	randomChump( std::string name )
+void randomChump(std::string name)
 {
-    Zombie zombie(name);
-    zombie.announce();
+    Zombie stackZombie(name);
+    
+    stackZombie.announce();
 }

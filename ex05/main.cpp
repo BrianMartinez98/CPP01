@@ -5,29 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 00:54:37 by vruiz-ru          #+#    #+#             */
-/*   Updated: 2026/06/16 11:35:26 by vruiz-ru         ###   ########.fr       */
+/*   Created: 2026/06/11 19:39:20 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 14:37:17 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
+# include <iostream>
 
-int main(void)
+int main()
 {
-    std::cout << "\n--- CREANDO ZOMBI EN EL HEAP ---" << std::endl;
-   
-    Zombie* HeapZombie = newZombie("Heap");
+    Harl harl;
 
-    HeapZombie->announce();
-    
-    std::cout << "\n--- CREANDO ZOMBI EN EL STACK ---" << std::endl;
+    std::cout << "--- TEST 1: DEBUG ---" << std::endl;
+    harl.complain("DEBUG");
+    std::cout << "\n--- TEST 2: INFO ---" << std::endl;
+    harl.complain("INFO");
+     std::cout << "\n--- TEST 3: WARNING ---" << std::endl;
+    harl.complain("WARNING");
+    std::cout << "\n--- TEST 4: ERROR ---" << std::endl;
+    harl.complain("ERROR");
+    std::cout << "\n--- UNKNOWN COMPLAINT TEST ---" << std::endl;
+    harl.complain("MISSING_KETCHUP");
 
-    randomChump("Stack");
-
-    std::cout << "\n--- DESTRUYENDO ZOMBI DEL HEAP ---" << std::endl;
-
-    delete HeapZombie;
-
-    std::cout << "\n--- FIN DEL PROGRAMA ---" << std::endl;
     return 0;
 }

@@ -5,29 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 00:54:37 by vruiz-ru          #+#    #+#             */
-/*   Updated: 2026/06/16 11:35:26 by vruiz-ru         ###   ########.fr       */
+/*   Created: 2026/06/09 12:58:59 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 13:43:02 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Zombie.hpp"
+#include "Replacer.hpp"
+#include <iostream>
 
-int main(void)
+int main(int ac, char **av)
 {
-    std::cout << "\n--- CREANDO ZOMBI EN EL HEAP ---" << std::endl;
-   
-    Zombie* HeapZombie = newZombie("Heap");
+    if (ac != 4)
+    {
+        std::cerr << "Error: Invalid number of arguments." << std::endl;
+        std::cerr << "Use: ./replace <filename> <s1> <s2>" << std::endl;
+        return 1;
+    }
 
-    HeapZombie->announce();
-    
-    std::cout << "\n--- CREANDO ZOMBI EN EL STACK ---" << std::endl;
+    std::string s1 = av[2];
 
-    randomChump("Stack");
+    if (s1.empty())
+    {                 
+        std::cerr << "Error: The search string (s1) cannot be empty." << std::endl;
+        return 1;
+    }
 
-    std::cout << "\n--- DESTRUYENDO ZOMBI DEL HEAP ---" << std::endl;
+    Replacer textProcessor(av[1], s1, av[3]);
 
-    delete HeapZombie;
+    if (!textProcessor.replaceWords())
+        return 1;
 
-    std::cout << "\n--- FIN DEL PROGRAMA ---" << std::endl;
     return 0;
 }

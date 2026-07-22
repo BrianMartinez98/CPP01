@@ -1,28 +1,30 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brimarti <brimarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/10 11:04:48 by brimarti          #+#    #+#             */
-/*   Updated: 2026/07/10 11:04:49 by brimarti         ###   ########.fr       */
+/*   Created: 2026/06/08 19:09:23 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 12:40:30 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "Zombie.hpp"
 
-void Zombie::announce(void)
+Zombie::Zombie(): _name("NONAME") {}
+
+Zombie::~Zombie()
 {
-    std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
+    std::cout << "\033[31m" << this->_name << ": Destroyed.\033[0m" << std::endl;
 }
 
-Zombie::~Zombie(void)
+void Zombie::announce(void) const
 {
-    std::cout << _name << " destroyed\n";
+    std::cout << "\033[32m" << this->_name << ": BraiiiiiiinnnzzzZ...\033[0m" << std::endl;
 }
 
-void Zombie::setName(std::string name)
+void Zombie::setName(const std::string& name)
 {
-	_name = name;
+    this->_name = name;
 }

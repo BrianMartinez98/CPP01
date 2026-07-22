@@ -5,20 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/08 19:08:42 by vruiz-ru          #+#    #+#              #
-#    Updated: 2026/06/16 13:30:45 by vruiz-ru         ###   ########.fr        #
+#    Created: 2026/06/09 13:16:59 by vruiz-ru          #+#    #+#              #
+#    Updated: 2026/06/16 13:49:02 by vruiz-ru         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME        = horde
+NAME        = replace
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 RM          = rm -f
 
-SRCS        = main.cpp Zombie.cpp zombieHorde.cpp
+SRCS        = main.cpp Replacer.cpp
 OBJS        = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Zombie.hpp  
+%.o: %.cpp Replacer.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all:        $(NAME)

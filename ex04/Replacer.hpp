@@ -1,34 +1,34 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Replacer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 00:54:51 by vruiz-ru          #+#    #+#             */
-/*   Updated: 2026/06/08 01:16:39 by vruiz-ru         ###   ########.fr       */
+/*   Created: 2026/06/09 13:47:22 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 13:37:05 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef REPLACER_HPP
+#define REPLACER_HPP
 
-# include <iostream>
-# include <string>
+#include <string>
 
-class Zombie
+class Replacer 
 {
-  private:
-	std::string name;
+    private:
+        std::string _filename;
+        std::string _s1;
+        std::string _s2;
 
-  public:
-	Zombie(std::string name);
-	~Zombie();
+        std::string _processLine(const std::string& line) const;
 
-	void announce(void) const;
+    public:
+        Replacer(const std::string& filename, const std::string& s1, const std::string& s2);
+        ~Replacer();
+
+        bool replaceWords() const;
 };
-
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
 
 #endif

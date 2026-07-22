@@ -1,36 +1,37 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brimarti <brimarti@student.42.fr>          +#+  +:+       +#+         #
+#    By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/07/10 11:05:33 by brimarti          #+#    #+#              #
-#    Updated: 2026/07/10 11:05:34 by brimarti         ###   ########.fr        #
+#    Created: 2026/06/07 00:54:19 by vruiz-ru          #+#    #+#              #
+#    Updated: 2026/06/16 13:30:59 by vruiz-ru         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
-NAME = brainz
-OBJS = $(SRCS:.cpp=.o)
-SRCS =	main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		Zombie.cpp
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-CXX = c++
-RM = rm -f
+NAME        = zombie
+CXX         = c++
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
+RM          = rm -f
 
-all: $(NAME)
+SRCS        = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+OBJS        = $(SRCS:.cpp=.o)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+%.o: %.cpp Zombie.hpp  
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+all:        $(NAME)
+
+$(NAME):    $(OBJS)
+			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) 
 
 clean:
-	$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:     clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:         fclean all
 
-.PHONY: all clean fclean re
+.PHONY:     all clean fclean re

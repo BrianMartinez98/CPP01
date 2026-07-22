@@ -1,30 +1,30 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brimarti <brimarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vruiz-ru <vruiz-ru@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/10 11:05:11 by brimarti          #+#    #+#             */
-/*   Updated: 2026/07/10 11:08:56 by brimarti         ###   ########.fr       */
+/*   Created: 2026/06/08 19:08:56 by vruiz-ru          #+#    #+#             */
+/*   Updated: 2026/06/16 12:43:45 by vruiz-ru         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "Zombie.hpp"
-#include "Zombie.h"
 #include <iostream>
 
 int main(void)
 {
-    const int NUM_ZOMBIES = N;
+    const int NUM_ZOMBIES = 8;
 
     std::cout << "\n--- CREATING THE HORDE OF " << NUM_ZOMBIES << " ZOMBIES ---" << std::endl;
+    
     Zombie* myHorde = zombieHorde(NUM_ZOMBIES, "Infected");
 
     if (myHorde == NULL)
     {
         std::cout << "The horde could not be created." << std::endl;
-        return (1);
+        return 1;
     }
 
     std::cout << "\n--- THE HORDE SALUTES YOU ---" << std::endl;
@@ -35,5 +35,5 @@ int main(void)
     delete[] myHorde;
 
     std::cout << "\n--- END OF PROGRAM ---" << std::endl;
-    return (0);
+    return 0;
 }
